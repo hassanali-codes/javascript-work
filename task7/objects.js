@@ -3,20 +3,20 @@
 // "javascript" Goal: Count how many times each character appears.
 
 
-function countCharacters(str){
-    const counter = {}
-    for(let char of str){
-        if(counter[char]){
-            counter[char] += 1;
-        }
-        else{
-            counter[char] = 1;
-        }
-    }
-    return counter;
-    }
-const result = countCharacters("javascript with hassan ali");
-console.log(result);
+// function countCharacters(str){
+//     const counter = {}
+//     for(let char of str){
+//         if(counter[char]){
+//             counter[char] += 1;
+//         }
+//         else{
+//             counter[char] = 1;
+//         }
+//     }
+//     return counter;
+//     }
+// const result = countCharacters("javascript with hassan ali");
+// console.log(result);
 
 
 //-------------PRACTICE---------------
