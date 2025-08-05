@@ -98,25 +98,7 @@
 
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+// ---------------PRACTICE-------------------------
 // ------- FUNCTIONS-----------------:
 // function evenOddchecker(num){
 //     for(let i = 2 ; i < num+1; i++){
