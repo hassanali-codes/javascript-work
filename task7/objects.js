@@ -61,29 +61,29 @@ console.log(person1.isEmployed)
 person1.sayHello()
 person1.eat()
 
-console.log(person2.firstName)
-console.log(person2.lastName)
-console.log(person2.age)
-console.log(person2['age'])
-console.log(person2.isEmployed)
-person2.sayHello()
-person2.eat()  
+// console.log(person2.firstName)
+// console.log(person2.lastName)
+// console.log(person2.age)
+// console.log(person2['age'])
+// console.log(person2.isEmployed)
+// person2.sayHello()
+// person2.eat()  
 
 
 
-const car = {
-  brand: "Honda",
-  model: "Civic",
-  year: 2020,
-  color: "Red"
-};
+// const car = {
+//   brand: "Honda",
+//   model: "Civic",
+//   year: 2020,
+//   color: "Red"
+// };
 
-// for...in loop
-for (let prop in car) {
-  console.log(`${prop}: ${car[prop]}`);
-}
+// // for...in loop
+// for (let prop in car) {
+//   console.log(`${prop}: ${car[prop]}`);
+// }
 
-// Object.keys loop
-Object.keys(car).forEach(key => {
-  console.log(`${key}: ${car[key]}`);
-});
+// // Object.keys loop
+// Object.keys(car).forEach(key => {
+//   console.log(`${key}: ${car[key]}`);
+// });
