@@ -100,26 +100,6 @@ function firstUniqueChar(str) {
 console.log(firstUniqueChar("loveleetcode")); 
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 // ---------------Operation using Array Methods---------------------
 // --------------------Practice-------------------------------------
 
