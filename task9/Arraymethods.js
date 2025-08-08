@@ -75,7 +75,7 @@
 
 // console.log(unique)
 
-// let name = "loveleetcode"
+let name = "loveleetcode"
 
 function firstUniqueChar(str) {
     for (let i = 0; i < str.length; i++) {
