@@ -1,22 +1,24 @@
 // DOM NAVIGATION = The process of navigating through the structure of an HTML document using javascipt:
 
-// .nextElementsibling
-// .previousElementsibling
 // .parentElement
 // .children
 
-// ----nextElementSiblibings-----
-const element = document.getElementById("apple")
-const nextSibling = element.nextElementSibling;
-nextSibling.style.backgroundColor = "yellow"
+// ------.parentElement---------
+// const parElement = document.getElementById("pie")
+// const parent = parElement.parentElement;
+// parent.style.backgroundColor = "yellow"
 
-// ------.previousElementsibling --------
-const elements= document.getElementById("desserts")
-const previousElement = elements.previousElementSibling;
-previousElement.style.backgroundColor = "yellow"                                                                     
+//--------.children------------
+const childElement = document.getElementById("vegetables")
+const child = childElement.children;
 
+// console.log(child)
 
+child[2].style.backgroundColor = "yellow"
 
+// Array.from(child).forEach(child => {
+//     child.style.backgroundColor = "yellow"
+// })
 
 
 
