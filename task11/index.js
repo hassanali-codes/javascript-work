@@ -1,11 +1,62 @@
-// Navigating The DOM:
+// DOM NAVIGATION = The process of navigating through the structure of an HTML document using javascipt:
 
-// const heading = document.getElementById("title");
-// console.log(heading.textContent); // Hello
+//firstElementChild
+// lastElementChild
 
-const firstPara = document.querySelector(".text")
-console.log(firstPara.textContent)  
 
-const allPara = document.querySelectorAll(".text")
-allPara.forEach(p => console.log(p.textContent))  
+//  ------------first and lastElementChild-------------
+
+const element = document.getElementById("desserts");
+const firstChild = element.firstElementChild;
+const lastChild = element.lastElementChild
+lastChild.style.backgroundColor = "yellow"
+
+const ulElements = document.querySelectorAll("ul")
+
+ulElements.forEach(ulElements => {
+    const lastChild = ulElements.lastElementChild;
+    lastChild.style.backgroundColor = "yellow"
+})
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
