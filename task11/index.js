@@ -4,9 +4,9 @@
 // .children
 
 // ------.parentElement---------
-// const parElement = document.getElementById("pie")
-// const parent = parElement.parentElement;
-// parent.style.backgroundColor = "yellow"
+ const parElement = document.getElementById("pie")
+ const parent = parElement.parentElement;
+ parent.style.backgroundColor = "yellow"
 
 //--------.children------------
 const childElement = document.getElementById("vegetables")
@@ -16,9 +16,9 @@ const child = childElement.children;
 
 child[2].style.backgroundColor = "yellow"
 
-// Array.from(child).forEach(child => {
-//     child.style.backgroundColor = "yellow"
-// })
+ Array.from(child).forEach(child => {
+     child.style.backgroundColor = "yellow"
+ })
 
 
 
