@@ -1,6 +1,45 @@
+<<<<<<< HEAD
 // ----Practice question1 -------
 const firstPara = document.querySelector(".intro")
 console.log(firstPara.textContent)
+=======
+// DOM NAVIGATION = The process of navigating through the structure of an HTML document using javascipt:
+
+// .parentElement
+// .children
+
+// ------.parentElement---------
+ const parElement = document.getElementById("pie")
+ const parent = parElement.parentElement;
+ parent.style.backgroundColor = "yellow"
+
+//--------.children------------
+const childElement = document.getElementById("vegetables")
+const child = childElement.children;
+
+// console.log(child)
+
+child[2].style.backgroundColor = "yellow"
+
+ Array.from(child).forEach(child => {
+     child.style.backgroundColor = "yellow"
+ })
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+>>>>>>> f7f977ffde2c1b38876cb1f3aca4a810fa28a22f
 
 const allPara = document.querySelectorAll(".intro")
 allPara.forEach((p, index) => {
