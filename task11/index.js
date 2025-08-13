@@ -25,22 +25,6 @@ child[2].style.backgroundColor = "yellow"
      child.style.backgroundColor = "yellow"
  })
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
->>>>>>> f7f977ffde2c1b38876cb1f3aca4a810fa28a22f
-
 const allPara = document.querySelectorAll(".intro")
 allPara.forEach((p, index) => {
     console.log(`paragraph ${index + 1}:`, p.textContent)
