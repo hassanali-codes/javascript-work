@@ -1,15 +1,30 @@
-//access node from parent and child
-const elmnts = document.getElementById("vegetables")
-const firstChild = elmnts.firstElementChild;
-firstChild.style.backgroundColor = "yellow"
+// 2. DOM MANIPULATION:
+
+// By ID
+let head = document.getElementById("heading")
+console.log(head)
+
+// By Class
+let headings = document.getElementsByClassName("head-class")
+console.log(headings) 
+console.dir(headings)
+
+// By Tag:
+let paras = document.getElementsByTagName("p")
+console.log(paras)
+console.dir(paras)
 
 
-const ulElements = document.querySelectorAll("ul")
+// Query Selector:
+let elements = document.querySelector(".head-class")  //return 1st element.can access id and class both.
+console.dir(elements)
 
-ulElements.forEach(ulElements => {
-    const firstChild = ulElements.firstElementChild;
-    firstChild.style.backgroundColor = "yellow"
-})
+let allEl = document.querySelectorAll(".head-class")   // all elements
+console.dir(allEl) 
 
-let header = document.querySelector("h1")
-console.log(header.textContent)
+//firstElementChild
+// lastElementChild
+// nextElementSibling
+// previousElementSibling
+// parentElement
+// childrens
