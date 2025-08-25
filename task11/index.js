@@ -15,7 +15,6 @@ console.log(document.body)
 let head = document.getElementById("heading")
 console.log(head)
 
-
 // By Class
 let headings = document.getElementsByClassName("head-class")
 console.log(headings)
