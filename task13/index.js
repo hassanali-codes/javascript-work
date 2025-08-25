@@ -9,7 +9,7 @@ console.log(add(5, 6))
 const sayHi = () => console.log("Hi");
 
 const square = n => n * n;
-// or
+// or  
 const square2 = (n) => n * n;
 
 const ad = (a, b) => a + b;
