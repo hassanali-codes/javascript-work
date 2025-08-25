@@ -1,17 +1,17 @@
-// Create element
 
-let para = document.createElement("p")
-para.innerText = "Hello my name is hassan"
+// ---------------TO DO LIST APP---------------------
 
-let newDiv = document.createElement("div");
-newDiv.innerText = "Hello from java script";
+let btn = document.getElementById("addBtn");
 
-// append and appendChild
-document.body.appendChild(newDiv)
-document.body.append("some text", para , newDiv) // can add text and multiple elements
+    btn.addEventListener("click", () => {
+      let input = document.querySelector("input")
+      if(!input.value.trim())
+          return;
 
-// remove and removeChild
-document.body.removeChild(newDiv);  // needs a parent
+      let li = document.createElement("li");
+      li.innerHTML = `${input.value} <button>Delete</button>`;
+      li.querySelector("button").onclick = () => li.remove();
 
-newDiv.remove(); // directle removes it
-
+      document.getElementById("taskList").appendChild(li);
+      input.value= ""; 
+    })
