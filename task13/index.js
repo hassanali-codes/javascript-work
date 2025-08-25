@@ -1,37 +1,41 @@
-// --------------TASK 13--------
-// // Write an arrow function to check if a number is prime.
+// --------------TASK 13------------
+//  Destructing
+let arr = [1,2,3]
+let [a,b,c] = arr
 
-const primes = x => {
-  if(x < 2){
-    return "notPrime"
-  }
-  for(let i = 2; i <= Math.sqrt(x); i++){
-    if(x % i === 0){
-      return "notPrime"
-    }
-  }
-  return "prime"
-}
-
-console.log(primes(15))
+console.log(a)
+console.log(b)
+console.log(c)
 
 
+let person1 = { name1: "Ali", age1: 20, city1: "Karachi" };
+let { name1, age1, city1 } = person1;
 
-// TEMPLATE LITERALS
-let name = "Hassan ali"
-let age = 20
-let isStudent = true
-console.log(`my name is ${name}
-            I am ${age} years old
-            are you a student?: ${isStudent}`)
+console.log(name1); 
+console.log(age1);  
+console.log(city1); 
 
 
-// Create a function that takes name & age and returns:
-const func = (name, age) => {
-  return `My name is ${name} and i am ${age} years old`
-}
+let [x, y= 2] = [5]
+console.log(Math.pow(x, y))
+console.log(y)  
 
-console.log(func("hassan ali", 20))
+
+let arr1 = {name: "Ali", age: 20, city: "Karachi"}
+let {name, age, city} = arr1
+
+console.log(name)
+console.log(age)
+console.log(city)
+
+// Swap two variables using array destructuring.
+let  num1 = 5;
+let num2 = 10;
+
+[num1, num2] = [num2, num1]
+
+console.log(num1, num2)
+
 
 
 
