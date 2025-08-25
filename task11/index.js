@@ -17,7 +17,7 @@ console.log(head)
 
 // By Class
 let headings = document.getElementsByClassName("head-class")
-console.log(headings)
+console.log(headings) 
 console.dir(headings)
 
 // By Tag:
