@@ -1,30 +1,47 @@
-// 2. DOM MANIPULATION:
-
-// By ID
-let head = document.getElementById("heading")
-console.log(head)
-
-// By Class
-let headings = document.getElementsByClassName("head-class")
-console.log(headings) 
-console.dir(headings)
-
-// By Tag:
-let paras = document.getElementsByTagName("p")
-console.log(paras)
-console.dir(paras)
+// ---------- PART #2 DOM --------------
+// Properties: there are some properties you can get or set(change) or update
+// .tagName
+// .innertwxt
+// .innerHTML
+// .textcontent
 
 
-// Query Selector:
-let elements = document.querySelector(".head-class")  //return 1st element.can access id and class both.
-console.dir(elements)
+// ATTRIBUTES:
+// getAttribute
 
-let allEl = document.querySelectorAll(".head-class")   // all elements
-console.dir(allEl) 
+let div = document.querySelector("div")
 
-//firstElementChild
-// lastElementChild
-// nextElementSibling
-// previousElementSibling
-// parentElement
-// childrens
+let id= div.getAttribute("id")
+console.log(id)
+
+let a = document.querySelector("div")
+
+let val = div.getAttribute("name")
+console.log(val)
+
+let para = document.querySelector("p")
+console.log(para.getAttribute("class"))
+
+console.log(para.setAttribute("class", "hasan"))
+
+div.setAttribute(div, "hassan")
+
+
+
+// ------- .style method ----------
+let dv = document.querySelector("div")
+
+div.style.backgroundColor = "purple"
+
+div.style.fontSize = "24px"
+
+div.innerText = "Hello From Javascript"
+
+// ---------add/remove----------
+
+let para1 = document.querySelector("p")
+
+para1.classList.add("newClass", "font")
+
+
+para1.classList.remove("newClass")
