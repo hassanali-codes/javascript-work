@@ -1,41 +1,41 @@
-// ----------javascript Events------------
- let form = document.getElementById("myForm");
+// -------------------TOD LIST APP-------------------------
 
-  let nameInput = document.getElementById("name");
-  let output = document.getElementById("output");
+let form = document.getElementById("todoForm");
+let taskInput = document.getElementById("taskInput");
+let taskList = document.getElementById("taskList");
 
-  // Input event (fires as you type)
-  nameInput.addEventListener("input", () => {
-    output.innerText = "Typing: " + nameInput.value;
+// When form is submitted
+form.addEventListener("submit", (event) => {
+  event.preventDefault(); // stop page refresh
+
+  let taskText = taskInput.value.trim();
+  if (taskText === "") return; // ignore empty input
+
+  // Create a new <li> element
+  let li = document.createElement("li");
+  li.textContent = taskText;
+
+  // Create delete button
+  let delBtn = document.createElement("button");
+  delBtn.textContent = "❌";
+  delBtn.style.marginLeft = "10px";
+  delBtn.onclick = () => li.remove(); // delete when clicked
+
+  // Add strike-through on double click
+  li.addEventListener("dblclick", () => {
+    li.style.textDecoration =
+      li.style.textDecoration === "line-through" ? "none" : "line-through";
   });
 
-  // Change event (fires when input loses focus after typing)
-  nameInput.addEventListener("change", () => {
-    console.log("Final input value:", nameInput.value);
-  });
+  // Put delete button inside the <li>
+  li.appendChild(delBtn);
 
-// Submit event
-  form.addEventListener("submit", (event) => {
-    event.preventDefault(); // stop page refresh
-    output.innerText = "Form submitted with: " + nameInput.value;
-  });
+  // Add <li> to the list
+  taskList.appendChild(li);
 
-
-
-let btn = document.getElementById("addBtn");
-
-    btn.addEventListener("click", () => {
-      let input = document.querySelector("input")
-      if(!input.value.trim())
-          return;
-
-      let li = document.createElement("li");
-      li.innerHTML = `${input.value} <button>Delete</button>`;
-      li.querySelector("button").onclick = () => li.remove();
-
-      document.getElementById("taskList").appendChild(li);
-      input.value= ""; 
-    })
+  // Clear input after adding
+  taskInput.value = "";
+});
 
 
 
