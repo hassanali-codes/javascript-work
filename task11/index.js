@@ -1,14 +1,17 @@
-const myButton = document.getElementById("myButton")
+// Create element
 
-myButton.classList.add("enabled")
-myButton.classList.remove("enabled")
-myButton.classList.add("hover")
+let para = document.createElement("p")
+para.innerText = "Hello my name is hassan"
 
+let newDiv = document.createElement("div");
+newDiv.innerText = "Hello from java script";
 
-myButton.addEventListener("mouseover", event => {
-    event.target.classList.toggle("hover");
-})
+// append and appendChild
+document.body.appendChild(newDiv)
+document.body.append("some text", para , newDiv) // can add text and multiple elements
 
-myButton.addEventListener("mouseout", event => {
-    event.target.classList.toggle("hover");
-});
+// remove and removeChild
+document.body.removeChild(newDiv);  // needs a parent
+
+newDiv.remove(); // directle removes it
+
