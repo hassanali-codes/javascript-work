@@ -1,52 +1,41 @@
 // ----------javascript Events------------
-const mybutton = document.getElementById("myBtn")
-let button = document.getElementById("btn")
+ let form = document.getElementById("myForm");
 
- mybutton.addEventListener("mouseover", event => {
-    button.style.backgroundColor = "yellow"
-    button.textContent = "Don't do it 😲"
-})
+  let nameInput = document.getElementById("name");
+  let output = document.getElementById("output");
 
-mybutton.addEventListener("mouseout", event => {
-    button.style.backgroundColor = "lightgreen"
-    button.textContent = "Click Me 😊"
-})
-
-// Hover Button
-
-const myButton = document.getElementById("myButton")
-
-myButton.classList.add("enabled")
-myButton.classList.remove("enabled")
-myButton.classList.add("hover")
-
-
-myButton.addEventListener("mouseover", event => {
-    event.target.classList.toggle("hover");
-})
-
-myButton.addEventListener("mouseout", event => {
-    event.target.classList.toggle("hover");
-});
-
-
-
-  let input = document.getElementById("myInput");
-
-  // Key Down
-  input.addEventListener("keydown", (event) => {
-    console.log("Key down:", event.key);
+  // Input event (fires as you type)
+  nameInput.addEventListener("input", () => {
+    output.innerText = "Typing: " + nameInput.value;
   });
 
-  // Key Up
-  input.addEventListener("keyup", (event) => {
-    console.log("Key up:", event.key);
+  // Change event (fires when input loses focus after typing)
+  nameInput.addEventListener("change", () => {
+    console.log("Final input value:", nameInput.value);
   });
 
-  // Key Press (older, not recommended)
-  input.addEventListener("keypress", (event) => {
-    console.log("Key pressed:", event.key);
+// Submit event
+  form.addEventListener("submit", (event) => {
+    event.preventDefault(); // stop page refresh
+    output.innerText = "Form submitted with: " + nameInput.value;
   });
+
+
+
+let btn = document.getElementById("addBtn");
+
+    btn.addEventListener("click", () => {
+      let input = document.querySelector("input")
+      if(!input.value.trim())
+          return;
+
+      let li = document.createElement("li");
+      li.innerHTML = `${input.value} <button>Delete</button>`;
+      li.querySelector("button").onclick = () => li.remove();
+
+      document.getElementById("taskList").appendChild(li);
+      input.value= ""; 
+    })
 
 
 
