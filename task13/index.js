@@ -1,40 +1,68 @@
 // --------------TASK 13------------
-//  Destructing
-let arr = [1,2,3]
-let [a,b,c] = arr
+// Spread & Rest Operators
+const d = [1,2,3]
+const e = [4, 5]
 
-console.log(a)
-console.log(b)
-console.log(c)
+const copy = [...d]
+console.log(copy)
+
+const merged = [...d, ...e]
+console.log(merged)
+
+const middle = [0, ...d, ...e, 100]
+console.log(middle)
+
+const nums = [3, 8, 1]
+console.log(Math.max(...nums))
+console.log(Math.min(...nums))
+
+console.log([...`Ali`]) // string: arra of characters
+
+// In Objects
+const nameId = {id: 1, name: 'Hassan', city: "lahore"}
+const extra = {city: "Karachi", name: "Ali"}
+
+const copyObj = {...nameId}
+
+console.log(copyObj)
+
+// merge (later keys overwrite earlier ones)
+const mergeObj = {...nameId, ...extra}
+console.log(mergeObj)
 
 
-let person1 = { name1: "Ali", age1: 20, city1: "Karachi" };
-let { name1, age1, city1 } = person1;
+// REST OPERATORS:
+// allow a function work with a variable number of arguments by bundling them into an array
 
-console.log(name1); 
-console.log(age1);  
-console.log(city1); 
+function fruits(...fruit){
+  console.log(fruit)
+  console.log(...fruit)  //also use spread to seperate each elements
+}
+
+const fruit1 = "mango"
+const fruit2 = "apple"
+const fruit3 = "peach"
 
 
-let [x, y= 2] = [5]
-console.log(Math.pow(x, y))
-console.log(y)  
+fruits(fruit1, fruit2, fruit3) 
 
 
-let arr1 = {name: "Ali", age: 20, city: "Karachi"}
-let {name, age, city} = arr1
+function getFood(...foods){
+  return foods
+}
 
-console.log(name)
-console.log(age)
-console.log(city)
+const foods = getFood(fruit1, fruit2, fruit3)
+console.log(foods)
 
-// Swap two variables using array destructuring.
-let  num1 = 5;
-let num2 = 10;
 
-[num1, num2] = [num2, num1]
+// Merge two arrays using spread
+let arr1 = [1,2,3,4,5]
+let arr2 = [5,6,7,8,9]
 
-console.log(num1, num2)
+let mergd = [...arr1, ...arr2]
+console.log(...mergd)
+
+
 
 
 
