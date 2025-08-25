@@ -1,0 +1,97 @@
+/* by id */
+/* #heading {
+    color: black;
+    /* text-decoration: line-through; */
+    /* background-color: aqua;
+}
+  */
+/* by class */
+/* .head-class {     
+    color: black;
+}
+
+body {
+    background-color: white;
+}
+
+button {
+    background-color: white;
+}
+
+#box {
+    height: 100px;
+    width: 100px;
+    background-color: cornflowerblue;
+    color: white;
+    border : 1px solid black
+}
+
+.content {
+    color: red
+}
+
+.newClass {
+    background-color: green;
+}
+
+.font {
+    font-size: large;
+} */ 
+
+#myButton {
+    font-size: 3rem;
+    margin: 8px;
+    border: none;
+    border-radius: 4px;
+    padding: 10px 5px;
+
+}
+
+.enabled {
+    background-color: aqua;
+    color: white
+}
+
+.hover {
+    box-shadow: 0 0 10px gray;
+    font-weight: bold;
+}
+
+/* #btn {
+    font-size: 4rem;
+    margin: 10px;
+    border: none;
+    border-radius: 5px;
+    padding: 10px 5px;
+}
+
+body{
+    background-color: lightcoral;
+    
+}
+
+p {
+    font-size: x-large;
+} */
+
+
+
+/* Events */
+/* div {
+    height: 100px;
+    width: 100px;
+    background-color: dodgerblue;
+    color: white;
+    border: 1px solid black
+} */
+
+.dark {
+    background-color: black;
+    color: white
+
+}
+
+.light {
+    background-color: white;
+    color: black;
+}

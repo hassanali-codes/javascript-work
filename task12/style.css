@@ -1,0 +1,37 @@
+/* #myBox {
+    background-color: lightgreen;
+    width: 300px;
+    height: 300px;
+    font-size:  4.5rem;
+    font-weight: bold;
+    display: flex;
+    align-items: center;
+    text-align: center;
+}
+
+body {
+    background-color: aqua;
+}
+
+#myBtn {
+    font-size: 3rem;
+} */
+
+/* #myButton {
+    font-size: 4rem;
+    margin: 10px;
+    border: none;
+    border-radius: 5px;
+    padding: 10px 5px;
+
+}
+
+.enabled {
+    background-color: aqua;
+    color: white
+}
+
+.hover {
+    box-shadow: 0 0 10px gray;
+    font-weight: bold;
+} */
