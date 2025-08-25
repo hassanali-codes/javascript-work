@@ -1,47 +1,39 @@
-// --------------EVENTS IN JAVASCRIPT---------------------
-// tThe change in the state of ana object is known as event
-
-let Btn = document.querySelector("#btn1")
-
-Btn.onclick = (evt) => {
-  console.log("btn1 was clicked")
-  let a = 25;
-  a++;
-  console.log(a)
-  console.log(evt)
-  console.log(evt.type)
-  console.log(evt.target)
-  console.log(evt.clientX, evt.clientY)
-}
+let btn = document.querySelector("#mode")
+let currMode = "light" ;
 
 
-let box = document.querySelector("div")
-box.onmouseover = () => {
-  console.log("you are inside the div")
-}
-
-
-// ----------Event Listeners---------------
-Btn.addEventListener("click", (evt) => {
-  console.log("button1 was clicked - handler1")
-//   console.log(evt)
-//   console.log(evt.type)
+btn.addEventListener("click", () => {
+  if(currMode === "light"){
+    currMode = "dark"
+    document.querySelector("body").style.backgroundColor = "black"
+  }
+  else{
+    currMode = "light"
+    document.querySelector("body").style.backgroundColor = "aqua"
+  
+  }
+  console.log(currMode)
 })
 
-Btn.addEventListener("click", () => {
-  console.log("button1 was clicked - handler2")
+
+// using class-list
+let body = document.querySelector("body")
+
+btn.addEventListener("click", () => {
+  if(currMode === "light"){
+    currMode = "dark"
+    body.classList.add("dark")
+    body.classList.remove("light")
+
+  }
+  else{
+    currMode = "light"
+    body.classList.add("light")
+    body.classList.remove("dark")
+
+
+  
+  }
+  console.log(currMode)
 })
 
-// Note: the callback reference should be same to remove
-const handler3 = () => {
-  console.log("button1 was clicked - handler3")
-}
-
-Btn.addEventListener("click", handler3);
-
-Btn.addEventListener("click", () => {
-  console.log("button1 was clicked - handler4")
-})
-
-// Note: the callback reference should be same to remove
-Btn.removeEventListener("click", handler3)
