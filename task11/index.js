@@ -1,39 +1,20 @@
-let btn = document.querySelector("#mode")
-let currMode = "light" ;
+// ------------PRACTICE QUESTION-----------------
 
+// --------------- leet code problem --------------
+let count = 0;
+  const display = document.getElementById("count");
 
-btn.addEventListener("click", () => {
-  if(currMode === "light"){
-    currMode = "dark"
-    document.querySelector("body").style.backgroundColor = "black"
-  }
-  else{
-    currMode = "light"
-    document.querySelector("body").style.backgroundColor = "aqua"
-  
-  }
-  console.log(currMode)
-})
+  document.getElementById("inc").addEventListener("click", () => {
+    count++;
+    display.textContent = count;
+  });
 
+  document.getElementById("dec").addEventListener("click", () => {
+    count--;
+    display.textContent = count;
+  });
 
-// using class-list
-let body = document.querySelector("body")
-
-btn.addEventListener("click", () => {
-  if(currMode === "light"){
-    currMode = "dark"
-    body.classList.add("dark")
-    body.classList.remove("light")
-
-  }
-  else{
-    currMode = "light"
-    body.classList.add("light")
-    body.classList.remove("dark")
-
-
-  
-  }
-  console.log(currMode)
-})
-
+  document.getElementById("reset").addEventListener("click", () => {
+    count = 0;
+    display.textContent = count;
+  });
