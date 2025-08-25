@@ -1,77 +1,38 @@
-// --------------TASK 13---------------
-const add = (a,b) => {
-    return a + b
-}
+// --------------TASK 13--------
+// // Write an arrow function to check if a number is prime.
 
-console.log(add(5, 6))
-
-// 0 parameters
-const sayHi = () => console.log("Hi");
-
-const square = n => n * n;
-// or  
-const square2 = (n) => n * n;
-
-const ad = (a, b) => a + b;
-
-const sum = (a, b) => {
-  const result = a + b;
-  return result; // must write return when using { }
-};
-
-
-const makeUser = (name) => ({ name, active: true });
-
-console.log(makeUser("Hassan ali")) 
-
-
-const bad = () => { foo: 1 };      
-const good = () => ({ foo: 1 });   
-
-const double = x => x * 2;          // implicit return (no { })
-const double2 = (x) => { return x * 2; }; // explicit return (with { })
-
-double2(5)
-console.log(double(5))      
-
-function show() {
-  console.log(this);
-}
-
-show(); // In browser → "window" (the global object)
-
-
-const person = {
-  name: "Ali",
-  friends: ["Ahmed", "Sara"],
-  showFriends: function() {
-    this.friends.forEach(friend => {
-      console.log(this.name + " knows " + friend);
-    });
+const primes = x => {
+  if(x < 2){
+    return "notPrime"
   }
-};
-
-person.showFriends();
-
-
-
-const counter = {
-  value: 0,
-  //  using arrow here: `this` won’t be the object
-  incBad: () => { this.value++; },
-
-  //  use a regular function so `this` is the object 
-  incGood() { this.value++; }
-};
-
-console.log(counter)
-
-
-// --------- Practice: Convert to arrow function-----------------
-const square3 = x => {
-  return Math.pow(x, 2)     
+  for(let i = 2; i <= Math.sqrt(x); i++){
+    if(x % i === 0){
+      return "notPrime"
+    }
+  }
+  return "prime"
 }
-console.log(square3(5))
+
+console.log(primes(15))
+
+
+
+// TEMPLATE LITERALS
+let name = "Hassan ali"
+let age = 20
+let isStudent = true
+console.log(`my name is ${name}
+            I am ${age} years old
+            are you a student?: ${isStudent}`)
+
+
+// Create a function that takes name & age and returns:
+const func = (name, age) => {
+  return `My name is ${name} and i am ${age} years old`
+}
+
+console.log(func("hassan ali", 20))
+
 
 
 
