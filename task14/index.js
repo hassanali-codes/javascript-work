@@ -1,35 +1,41 @@
-// Binary Search Algorithm (only works on sorted arrays)
+// compare: linear and binary search
+// linear O(n): Good for small or unsorted arrays
+// binary O(log n): Good for large sorted arrays
 
-` 1. find the middle element of the array
-  2. if the middle element = target -> return the index
-  3. if target < middle -> search in the left half
-  4. if target > middle -> search in the right half
-  5. repeat until the target is found or the array is empty`
 
-function binarySearch(arr, target) {
-    let low = 0;
-    let high = arr.length -1;
-
-    while (low <= high){
-        let mid = Math.floor((low + high) / 2);
-        if(arr[mid] === target){
-            return mid;
-        }
-        else if(arr[mid] < target){
-            low =  mid + 1
-        }
-        else{
-            high = mid - 1
+// ----------------LeetCode Style Problem-----------------
+// Problem: Find Index of First Occurrence of Target in Array
+function  findIndex(arr, target){
+    for(let i=0; i< arr.length; i++){
+        if(arr[i] === target){
+            return i;
         }
     }
-    return -1
+    return -1;
 }
 
-console.log(binarySearch([1,2,3,4,5,6,7,8,9,10,11,12,13,1000,2000,3000,4000], 2000)) 
+console.log(findIndex([1,2,3,3,3,34,5], 3)); 
 
 
+// Problem 2:
 
+function searchInsert(arr, target) {
+  let left = 0, right = arr.length - 1;
 
+  while (left <= right) {
+    let mid = Math.floor((left + right) / 2);
+
+    if (arr[mid] === target) return mid;
+    else if (arr[mid] < target) left = mid + 1;
+    else right = mid - 1;
+  }
+
+  return left; 
+}
+
+console.log(searchInsert([1,3,5,6], 5)); 
+console.log(searchInsert([1,3,5,6], 2)); 
+console.log(searchInsert([1,3,5,6], 7)); 
 
 
 
