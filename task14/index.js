@@ -1,18 +1,21 @@
-// task 14 - Binary and linear search
-// Algorithms are step-by-step procedures or formulas for solving a problem or performing a task. They are essential in computer science for 
-// data processing, // calculations, and other automated tasks.
+// linear search algorithm:
+`1. Iterate through each element of the array.
+2. Compare the current element with the target value.
+3. If a match is found, return the index of the element.
+4. If the end of the array is reached without finding the target, return -1 
+to indicate that the target is not present in the array.`
 
 
-// Efficiency:
-`.) Time complexity tells us how fast or slow an algorithm runs as the input size grows.
-O(n): Linear time complexity - the time taken grows linearly with the input size.
-O(log n): Logarithmic time complexity - the time taken grows logarithmically with the input size.
+function linearSearch(arr, target) {
+    for(let i = 0; i < arr.length; i++){
+        if(arr[i] === target){
+            return i
+        }
+    }
+    return -1
+}
 
-Example: searching an item in a list of 1000000 numbers
-.) Linear Search (O(n)):may take upto 1000000 steps
-.) Binary Search (O(log n)): may take upto 20 steps (if the list is sorted)
-
-`
+console.log(linearSearch([1,2,3,4,5], 6))
 
 
 
