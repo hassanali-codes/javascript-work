@@ -2,6 +2,7 @@
 // Algorithms are step-by-step procedures or formulas for solving a problem or performing a task. They are essential in computer science for 
 // data processing, // calculations, and other automated tasks.
 
+
 // Efficiency:
 `.) Time complexity tells us how fast or slow an algorithm runs as the input size grows.
 O(n): Linear time complexity - the time taken grows linearly with the input size.
