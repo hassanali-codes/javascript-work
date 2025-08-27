@@ -1,58 +1,35 @@
 // task 15
-let p = 9  //global scope
-function test() {
-    let a = 8;      //local scope
-    console.log(a)
-    console.log(p)
 
-    
+// Block Scope (let & const) vs Function Scope (var)
+if(true){
+    var x = 10;
+    let y = 20;
+    const z = 30;
 }
-test();
-console.log(p)
-// console.log(a)
+console.log(x); // 10
+// console.log(y); // ReferenceError: y is not defined
+// console.log(z); // ReferenceError: z is not defined
 
 
-
-let x  = 3
-
-function2()
-
-function function1() {
-    let x = 1
-    console.log(x)
+for (var i = 0; i < 3; i++) {
+  setTimeout(() => console.log("var:", i), 1000);
 }
-function function2() {
-    let x = 3
-    console.log(x)
+// Note: Because var is function-scoped, the same i is shared across all iterations.
+
+for (let i = 0; i < 3; i++) {
+  setTimeout(() => console.log("let:", i), 100);
 }
+// Note: with let, a new i is created for each iteration.(block scope)
+
+for(const i = 0; i < 3; i++) {
+  setTimeout(() => console.log("const:", i), 100);
+} 
+// Note: This will throw a TypeError because const cannot be reassigned.
 
 
-
-let globalVar = "I am global";
-
-function testScope() {
-  let localVar = "I am local";
-  console.log(globalVar);  
-  console.log(localVar);   
+let j = 0
+while(j < 3) {
+    const k = j;
+    setTimeout(() => console.log("while const:", k), 100);
+    j++;
 }
-testScope();
-
-console.log(globalVar); 
-// console.log(localVar);     // Error: localVar is not defined
-
-let name = "Hassan"
-
-function greet(){
-    let greeting = "Hello"
-    if(true) {
-        const lastName = "Ali"
-        console.log(greeting + " " + name + " " + lastName)
-    }
-}
-
-console.log(name) // Global scope
-
-greet();
-console.log(greeting + " " + lastName) // Error: greeting is not defined and also lastName is not defined
-
-
