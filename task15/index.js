@@ -1,35 +1,38 @@
 // task 15
+// -------------Hoisting in javaScript-------------
 
-// Block Scope (let & const) vs Function Scope (var)
-if(true){
-    var x = 10;
-    let y = 20;
-    const z = 30;
+// console.log(b)
+console.log(a)
+greet()
+function greet() {
+    console.log("Hello World")
 }
-console.log(x); // 10
-// console.log(y); // ReferenceError: y is not defined
-// console.log(z); // ReferenceError: z is not defined
 
+`Note: javascript only hoists declarations, not initializations. The variable will be undefined untuil the line
+where it is initialized is reached.`
+var a = 9;
+console.log(a) 
 
-for (var i = 0; i < 3; i++) {
-  setTimeout(() => console.log("var:", i), 1000);
+let b = 8; 
+console.log(b)
+
+`with var, if we try to access the variable before initialization, it will give undefined`
+console.log(x)
+var x = 7;
+
+`with let and const, if we try to access the variable before initialization, it will give reference error`
+console.log(y)
+let y = 6;
+
+`function declaration is fully hoisted--. you can call them before defining them`
+sayHello()
+const sayHello = function() {
+    console.log("Hello")
 }
-// Note: Because var is function-scoped, the same i is shared across all iterations.
 
-for (let i = 0; i < 3; i++) {
-  setTimeout(() => console.log("let:", i), 100);
-}
-// Note: with let, a new i is created for each iteration.(block scope)
-
-for(const i = 0; i < 3; i++) {
-  setTimeout(() => console.log("const:", i), 100);
-} 
-// Note: This will throw a TypeError because const cannot be reassigned.
-
-
-let j = 0
-while(j < 3) {
-    const k = j;
-    setTimeout(() => console.log("while const:", k), 100);
-    j++;
+`with function expression, if we try to access the variable before initialization, it will give reference error
+only the var sayHi is hoisted, not the function body`
+sayHi()
+var sayHi = function() {
+    console.log("Hi")
 }
