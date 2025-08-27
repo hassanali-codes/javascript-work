@@ -1,38 +1,60 @@
 // task 15
-// -------------Hoisting in javaScript-------------
+//  Task: Create one function declaration and one function expression,
+// and test calling them before they’re defined.
 
-// console.log(b)
-console.log(a)
-greet()
-function greet() {
-    console.log("Hello World")
+declarationFunc(); 
+// expressionFunc(); 
+function declarationFunc() {
+    console.log("This is a function declaration.");
 }
 
-`Note: javascript only hoists declarations, not initializations. The variable will be undefined untuil the line
-where it is initialized is reached.`
-var a = 9;
-console.log(a) 
+// const expressionFunc = function() {
+//     console.log("This is a function expression.");
+// };
 
-let b = 8; 
-console.log(b)
+// Practice Problems:1.	Write a program to check if a variable inside a loop is accessible outside the loop 
+// when declared with var, let, and const.
 
-`with var, if we try to access the variable before initialization, it will give undefined`
-console.log(x)
-var x = 7;
-
-`with let and const, if we try to access the variable before initialization, it will give reference error`
-console.log(y)
-let y = 6;
-
-`function declaration is fully hoisted--. you can call them before defining them`
-sayHello()
-const sayHello = function() {
-    console.log("Hello")
+for (var i = 0; i < 3; i++) {
+    console.log("Inside loop with var:", i);
 }
+console.log("Outside loop with var:", i); 
 
-`with function expression, if we try to access the variable before initialization, it will give reference error
-only the var sayHi is hoisted, not the function body`
-sayHi()
-var sayHi = function() {
-    console.log("Hi")
-}
+for (let j = 0; j < 3; j++) {}
+console.log("Outside loop with let:", j); // ReferenceError. J is not defined
+
+for (const k = 0; k < 3; k++) {}
+console.log("Outside loop with const:", k); // ReferenceError. K is not defined
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
