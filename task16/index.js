@@ -1,55 +1,30 @@
 // Task 16
-// How to use promises
+// Async await >> promise chaining >> callback hell
+// -----------Async Await------------------
+// Async-Await are two keywords that is used to make Asyncrounous programming simpler
+// async function always returns a promise
+// await is used to wait for a promise to be resolved
 
-const getPromise = () => {
-    return new Promise((resolve, reject) => {
-        console.log("I am a promise");
-        resolve("success")
-        reject("network error")
-})
+async function hello() {
+    console.log("hello")
 }
-// in then and catch we pass functions
-// then is for resolve
-// catch is for reject
-// both then and catch take one argument, a function
-// the function in then takes one argument, the value passed in resolve
-// the function in catch takes one argument, the value passed in reject
-let promise = getPromise();
-promise.then((res) => {
-    console.log("Promise fulfilled", res);
-})
 
-promise.catch((err) => {
-    console.log("Promise rejected", err);
-})
-
-// ---------Promise chaining----------------
-// chaining means using one then after another
-// the return value of one then is passed as argument to the next then
-function async1(){
+function api() {
     return new Promise((resolve, reject) => {
         setTimeout(() => {
-            console.log("data1")
-            resolve("success")
-        }, 4000)
+        console.log("weather api called")
+        resolve(200)  //200 repreesents a successful api call
+        }, 2000)
     })
 }
-
-function async2(){
-    return new Promise((resolve, reject) => {
-        setTimeout(() => {
-            console.log("data2")
-            resolve("success")
-        }, 4000)
-    })
+async function getWeather() {
+    await api(); // 1st call
+    await api(); // 2nd call
+    await api(); // 3rd call
+    console.log("weather data received")
 }
-console.log("fetching data 1...")
-async1().then((res) => {
-    console.log("fetching data 2...")
-    async2().then((res) => {
-    })
-}) 
 
+getWeather();
 
 function getData(dataId) {
     return new Promise((resolve, reject) => {
@@ -60,19 +35,44 @@ function getData(dataId) {
     })
  }
 
- console.log("fetching data 1...")
-getData(1)
-.then((res) => {
+ // Async-await
+async function fetchData() {
+    console.log("fetching data 1...")
+    await getData(1);
     console.log("fetching data 2...")
-    return getData(2) // returning a promise
-})
-.then((res) => {
+    await getData(2);
     console.log("fetching data 3...")
-    return getData(3) // returning a promise
-})
-.then((res) => {
-    console.log(res) 
-})
+    await getData(3);
+    console.log("fetching data 4...")
+    await getData(4)
+    console.log("all data fetched")
+}
+
+fetchData();
+
+// error handling
+async function getData() {
+  try {
+    let response = await fetch("https://api.example.com/data");
+    let data = await response.json();
+    console.log(data);
+  } catch (error) {
+    console.log("Something went wrong:", error);
+  }
+}
+
+// real world usage with fetch api
+async function loadUsers() {
+  try {
+    let response = await fetch("https://jsonplaceholder.typicode.com/users");
+    let users = await response.json(); // convert response into JS object
+    console.log("Users:", users);
+  } catch (err) {
+    console.log("Failed to fetch users:", err);
+  }
+}
+
+loadUsers();
 
 
 
