@@ -1,80 +1,98 @@
-// -------------Task 16 javascript------------------
-// Synchrounous JavaScript
-console.log("one")
-console.log("two")
-console.log("three") 
+// Task 16
+// How to use promises
 
-// // Asynchrounous JavaScript
-setTimeout(() => {
-    console.log("Hello World")
-}, 4000)
-console.log("four") 
-
-// Callback function: A callback is a function passed as an argument to antoher funct-ion
-function Sum(a, b){
-    console.log(a + b)
+const getPromise = () => {
+    return new Promise((resolve, reject) => {
+        console.log("I am a promise");
+        resolve("success")
+        reject("network error")
+})
 }
-
-function calc(a, b, sumCallback){
-    sumCallback(a, b)
-}
-// calc(5, 6, Sum) 
-calc(1, 2, (a, b) => {
-    console.log(a + b)
+// in then and catch we pass functions
+// then is for resolve
+// catch is for reject
+// both then and catch take one argument, a function
+// the function in then takes one argument, the value passed in resolve
+// the function in catch takes one argument, the value passed in reject
+let promise = getPromise();
+promise.then((res) => {
+    console.log("Promise fulfilled", res);
 })
 
-const hello = () => {
-    console.log("Hello World")
-}
-setTimeout(hello, 3000) 
-
-// callback hell: Nested callbacks stacked below one another forming a apyramid structure
-// Example of callback hell
-
-function getData(dataId , getNextData){
-    setTimeout(() => {
-        console.log("data: ", dataId)
-        if(getNextData){
-            getNextData()  
-        }
-}, 2000)
-}
-getData(1, () => {
-    console.log("Fetching next data...")
-    getData(2, () => {
-            console.log("Fetching next data...")
-        getData(3, () => {
-            console.log("Fetching next data...")
-            getData(4)
-        });
-    });
-});
-
-// Note: This style of programming becomes difficult to understand & manage
-// to solve this problem we use Promises, Async/Await
-
-// -------------Promises------------------
-// A promise is an object in js.it has three states: pending, fulfilled, rejected(handlers: resolve, reject)
-// Promise is used to handle asynchrounous operations in js
-
-let promise = new Promise((resolve, reject) => {
-    console.log("I am inside promise")
-    resolve("Promise resolved")
-    // reject("some error occured")
+promise.catch((err) => {
+    console.log("Promise rejected", err);
 })
 
-// in general programming: we dont create promises like this
-function getData(dataId , getNextData){
+// ---------Promise chaining----------------
+// chaining means using one then after another
+// the return value of one then is passed as argument to the next then
+function async1(){
     return new Promise((resolve, reject) => {
         setTimeout(() => {
-            console.log("data: ", dataId)
-            resolve("data fetched")
-            if(getNextData){
-                getNextData()  
-            }
-    }, 5000)  
+            console.log("data1")
+            resolve("success")
+        }, 4000)
     })
-
 }
 
-    
+function async2(){
+    return new Promise((resolve, reject) => {
+        setTimeout(() => {
+            console.log("data2")
+            resolve("success")
+        }, 4000)
+    })
+}
+console.log("fetching data 1...")
+async1().then((res) => {
+    console.log("fetching data 2...")
+    async2().then((res) => {
+    })
+}) 
+
+
+function getData(dataId) {
+    return new Promise((resolve, reject) => {
+        setTimeout(() => {
+            console.log("data", dataId)
+            resolve("success")
+        }, 2000);
+    })
+ }
+
+ console.log("fetching data 1...")
+getData(1)
+.then((res) => {
+    console.log("fetching data 2...")
+    return getData(2) // returning a promise
+})
+.then((res) => {
+    console.log("fetching data 3...")
+    return getData(3) // returning a promise
+})
+.then((res) => {
+    console.log(res) 
+})
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
