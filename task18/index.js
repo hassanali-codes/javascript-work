@@ -1,11 +1,15 @@
 // ----------------Task 18----------------
-// Fetch all posts and print first 5 titles.
+//   Fetch a single post (/posts/1) and log it.
 fetch("https://jsonplaceholder.typicode.com/posts")
   .then(response => response.json())
-  .then(data => {
-    console.log("first five elements:", data.slice(0, 5))
+  .then(posts => {
+    console.log("single post", posts[0])
   })
   .catch(error => console.error("Error:", error));
+
+  
+
+
 
 
        
