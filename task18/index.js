@@ -1,31 +1,17 @@
 // TASK 18
-// ---------------tASK 1--------------------
-//Convert the previous fetch examples (GET posts, single post, POST new post) into async/await style.
-// Post new Post (send data)
-
-async function createPost(){
+// -------------Task2---------------
+// Create a function getUserPosts(userId) that fetches posts of a specific user.
+async function getUserPosts(userId){
     try {
-        const response = await fetch("https://jsonplaceholder.typicode.com/posts",{
-            method: "Post",
-            body: JSON.stringify({
-                title: "My Title",
-                body: "This is the content of my post",
-                userId: 101
-            }),
-            headers: {
-                "content-type" : "application/json; charset=UTF-8"
-            }
-        });
+        const response = await fetch(`https://jsonplaceholder.typicode.com/posts?userId=${userId}`)
+        const posts = await response.json()
 
-        const newPost = await response.json()
-        console.log("New Post Created: ", newPost)
-
+        console.log(`posts for User ${userId}`)
+        posts.forEach(post => console.log(post.title))
+            
     }
-    catch (error) {
-        console.error("Error creating Post:",error)
+    catch (error){
+        console.error("Error fetching user post: ", error)
     }
 }
-
-createPost()  
-
-
+getUserPosts(5)
