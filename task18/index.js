@@ -1,17 +1,31 @@
 // TASK 18
 // ---------------tASK 1--------------------
 //Convert the previous fetch examples (GET posts, single post, POST new post) into async/await style.
-// Get a Single post (/post/1)
-async function getSinglePost(){
-    try {
-        const response = await fetch("https://jsonplaceholder.typicode.com/posts/1")
-        const Post = await response.json()
+// Post new Post (send data)
 
-        console.log("Single Post: ", Post)
+async function createPost(){
+    try {
+        const response = await fetch("https://jsonplaceholder.typicode.com/posts",{
+            method: "Post",
+            body: JSON.stringify({
+                title: "My Title",
+                body: "This is the content of my post",
+                userId: 101
+            }),
+            headers: {
+                "content-type" : "application/json; charset=UTF-8"
+            }
+        });
+
+        const newPost = await response.json()
+        console.log("New Post Created: ", newPost)
+
     }
-    catch (error){
-        console.error("Error fetching single post:", error)
+    catch (error) {
+        console.error("Error creating Post:",error)
     }
 }
-getSinglePost()
+
+createPost()  
+
 
