@@ -1,17 +1,22 @@
 // -----------------TASK 20---------------------------
-// Constructor Methods: constructor() is a special method inside a class.It runs automatically when you create a new object.
-// Used to initialize properties (give them starting values).
+//   Static keyword : keyword that defines propertie4s or methods that belongs to a class itself rather than the objects created from that class 
+//                    (class owns anything static, not the objects)
 
-class Student {
-    constructor(name, grade){
-        this.name = name
-        this.grade = grade
+class MathUtil{
+    static PI = 3.14159;
+
+    static getDiameter(radius){
+        return radius * 2
     }
-    showGrade(){
-        console.log(`NAME : ${this.name}`)
-        console.log(`GRADE : ${this.grade}`)
+    static getCirumference(radius){
+        return 2 * this.PI * radius
     }
+    static getArea(radius){
+        return this.PI * radius * radius
+    }
+
 }
-const st1 = new Student("Hassan Ali", "A+")
-
-st1.showGrade()
+console.log(MathUtil.getDiameter(10))
+console.log(MathUtil.getCirumference(10).toFixed(2))
+console.log(MathUtil.getArea(10).toFixed(2))
+console.log(MathUtil.PI)
