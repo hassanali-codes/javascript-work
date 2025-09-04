@@ -1,13 +1,26 @@
 // -----------------TASK 20---------------------------
-class car {
-    constructor(make, model, year) {
-        this.make = make
-        this.model = model
-        this.year = year
-    }
-    getdetails() {
-        return ` ${this.make} \n Model no. ${this.model} \n year ${this.year}`
-    }
+// Task 2
+class Person {
+  constructor(name, age) {
+    this.name = name;
+    this._age = age;   
+  }
+
+  get age() {
+    return this._age;
+  }
+
+  set age(newAge) {
+    this._age = newAge;
+  }
+
+  showInfo() {
+    console.log("Name: " + this.name + ", Age: " + this._age);
+  }
 }
-const info = new car("BMW", "M4 COMP", "2024");
-console.log(info.getdetails())
+
+let p1 = new Person("Ali", 30);
+p1.showInfo();              
+console.log("Age:", p1.age); // getter
+p1.age = 31;                // setter
+console.log("Updated Age:", p1.age);
