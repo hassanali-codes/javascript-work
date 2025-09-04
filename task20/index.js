@@ -1,30 +1,42 @@
 // -----------------TASK 20---------------------------
-// Task 3
-class Student extends Person {
-  constructor(name, age, grade) {
-    super(name, age); 
-    this.grade = grade;
-  }
-
-  showInfo() {
-    console.log("Student Name: " + this.name + ", Age: " + this._age + ", Grade: " + this.grade);
-  }
-
-// Task 4
-  static compare(s1, s2) {
-    if (s1.grade > s2.grade) {
-      return s1;
-    } else {
-      return s2;
+// Mini Project
+class book {
+    constructor(title, author, year) {
+        this.title = title
+        this.author = author
+        this.year = year
     }
-  }
 }
 
-let s1 = new Student("Hassan", 20, 85);
-let s2 = new Student("Ahmed", 21, 90);
+class library {
+    constructor() {
+        this.books = []
+    }
+    addBook(book) {
+        this.books.push(book)
+    }
+    removeBook(title) {
+        for (let i = 0; i < this.books.length; i++) {
+            if (this.books[i].title === title) {
+                this.books.splice(i, 1)
+                break
+            }
+        }
+    }
+    showBooks() {
+        this.books.forEach(book => {
+            console.log(`Title: ${book.title}, Author: ${book.author}, Year: ${book.year}`);
+        });
+    }
+}
 
-s1.showInfo();
-s2.showInfo();
+const book1 = new book("Harry Potter", "J.K. Rowling", 1997);
+const book2 = new book("wild life", "science", 1937);
 
-let topper = Student.compare(s1, s2);
-console.log("Topper is:", topper.name);
+const myLibrary = new library();
+myLibrary.addBook(book1);
+myLibrary.addBook(book2);
+myLibrary.showBooks();
+myLibrary.removeBook("wild life");
+console.log("Books in the library after removing wild life':");
+myLibrary.showBooks();
