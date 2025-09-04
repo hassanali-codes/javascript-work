@@ -1,37 +1,35 @@
 // -----------------TASK 20---------------------------
-class BankAccount {
-    constructor(owner, balance){
-        this.owner = owner
-        this.balance = balance
+// Class declaration vs expression
+// class declaration
+class Person{
+    constructor(name){
+        this.name = name
     }
-    deposite(amount){
-        this.balance += amount
-        console.log(`${this.owner} deposited $${amount}`)
-        console.log(`your Balance after deposite: $${this.balance}`) 
-
-    }
-
-    withdraw(amount){
-        this.balance -= amount
-        console.log(`${this.owner} withdrew $${amount}`)
-        console.log(`your Balance after withdraw: $${this.balance}`) 
-    }
-
-    showBalance(){
-        console.log(`your total balace is $${this.balance}`)
+    greet(){
+        console.log(`Hello ${this.name}`)
     }
 }
 
-const acc1 = new BankAccount("Hassan ali", 1000)
-const acc2 = new BankAccount("Haider ali", 2000)
+const p1 = new Person("Hassan ali")
 
-acc2.showBalance()
+p1.greet()
 
-acc1.deposite(500)
-acc2.withdraw(1500)
+// Named class expression
+const car = class CarClass{
+    constructor(brand){
+        this.brand = brand
+    }
+}
 
+// Anonymous class expression (no class name inside)
+const bike = class {
+    constructor(model){
+        this.model = model
+    }
+}
 
+const c1 = new car("Toyota")
+const c2 = new bike("yamaha")
 
-
-
-
+console.log(c1.brand)
+console.log(c2.model)
