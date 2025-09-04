@@ -1,42 +1,34 @@
 // -----------------TASK 20---------------------------
-// Classes in javascript: (ES6 feature) provides a more structured and cleaner wat to work with objects compared to traditional constructor functions:
+class BankAccount {
+    constructor(owner, balance){
+        this.owner = owner
+        this.balance = balance
+    }
+    deposite(amount){
+        this.balance += amount
+        console.log(`${this.owner} deposited $${amount}`)
+        console.log(`your Balance after deposite: $${this.balance}`) 
 
-class Products{
-    constructor(name, price){
-        this.name = name
-        this.price = price
     }
 
-    displayProduct(){
-        console.log(`product: ${this.name}`)
-        console.log(`price: $${this.price.toFixed(2)}`)
+    withdraw(amount){
+        this.balance -= amount
+        console.log(`${this.owner} withdrew $${amount}`)
+        console.log(`your Balance after withdraw: $${this.balance}`) 
     }
-    calcTotal(sales){
-        return this.price + (this.price * salesTax)
+
+    showBalance(){
+        console.log(`your total balace is $${this.balance}`)
     }
 }
 
-const salesTax = 0.05
+const acc1 = new BankAccount("Hassan ali", 1000)
+const acc2 = new BankAccount("Haider ali", 2000)
 
-const product1 = new Products("shirt", 19.99)
-const product2 = new Products("pant", 20.00)
-const product3 = new Products("underwear", 100.00)
+acc2.showBalance()
 
-product3.displayProduct();           
-
-const total = product3.calcTotal(salesTax)
-
-console.log(`Total price (with tax): $${total.toFixed(2)}`)
-
-
-
-
-
-
-
-
-
-
+acc1.deposite(500)
+acc2.withdraw(1500)
 
 
 
