@@ -1,48 +1,40 @@
 // --------------Task 21-----------------
-// Getters & Setters: Getters and setters are used for encapsulation (control how we read/write a property).
 
-class Person{
-    constructor(name, age){
-        this._name = name;
-        this._age = age;
+// Private Fields:In JavaScript, you can make a property private by putting # before its name.
+// A private field can only be accessed inside the class.
+
+// UserAccount program
+class UserAccount{
+    #password;
+
+    constructor(username){
+        this.username = username;
+        this.#password = "";
     }
-    // getter
-    get age() {
-        return this._age;
-    }
-    get name(){
-        return this._name
-    }
-    set age(value){
-        if(value > 0){
-            this._age = value;
+    setPassword(newPassword){
+        if(newPassword.length >= 6){
+            this.#password = newPassword  
         }
         else{
-            console.log("Age must be positive")
+            console.log("the lenght of password must be greater than or equal to 6")
         }
     }
 
-    set name(newName){
-        if(typeof newName === "string" && newName.length > 0){
-            this._name = newName
+    checkPassword(input){
+        if(input === this.#password){
+            return true
         }
         else{
-            console.log("name must be  a non-empty string")
+            return false;
         }
     }
 }
-const p1 = new Person("Hassan Ali", 20)
-// p1.age = -5  // age must be positive
-p1.age = 25 // update    
-p1.name = "Haider Ali"
-console.log(p1.name)
-console.log(p1.age) 
 
-
-
-
-
-
+const user1 = new UserAccount("Hassan")
+user1.setPassword("1234")
+user1.setPassword("Hassan1526")
+console.log(user1.checkPassword("hassan1526"))
+console.log(user1.checkPassword("Hassan1526"))
 
 
 
