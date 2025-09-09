@@ -1,42 +1,43 @@
 // --------------Task 21-----------------
-// Static Methods : A normal method belongs to the object (you call it with object.method()).
-//A static method belongs to the class itself (you call it with Class.method()).
-class MathHelper {
-    static add(a, b) {
-        return a + b
+// Getters & Setters: Getters and setters are used for encapsulation (control how we read/write a property).
+
+class Person{
+    constructor(name, age){
+        this._name = name;
+        this._age = age;
     }
-    static subtract(a, b) {
-        return a - b
+    // getter
+    get age() {
+        return this._age;
     }
-    static multiply(a, b) {
-        return a * b
+    get name(){
+        return this._name
     }
-    static divide(a, b) {
-        return a / b
+    set age(value){
+        if(value > 0){
+            this._age = value;
+        }
+        else{
+            console.log("Age must be positive")
+        }
+    }
+
+    set name(newName){
+        if(typeof newName === "string" && newName.length > 0){
+            this._name = newName
+        }
+        else{
+            console.log("name must be  a non-empty string")
+        }
     }
 }
-console.log(MathHelper.add(5, 3));
-console.log(MathHelper.subtract(5, 3));
+const p1 = new Person("Hassan Ali", 20)
+// p1.age = -5  // age must be positive
+p1.age = 25 // update    
+p1.name = "Haider Ali"
+console.log(p1.name)
+console.log(p1.age) 
 
-class User{
-    static userCount = 0;
-
-    constructor(username){
-        this.username = username
-        User.userCount++;
-    }
-    static showCount(){
-        console.log(`There are ${User.userCount} users online`)
-    }
-    sayHello(){
-        console.log(`Hello my username is ${this.username}`)
-    }
-}
-const user1 = new User("Hassan ali")
-const user2 = new User("Haider ali")
-user1.sayHello()
-user2.sayHello()
-User.showCount()
 
 
 
