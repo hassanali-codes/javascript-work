@@ -1,44 +1,34 @@
 // --------------Task 21-----------------
-
-// ----------Bank Account Task-----------
-class BankAccount{
-    #balance = 0
-
-    constructor(owner){
-        this.owner = owner 
+// ----------Leet Code Style Problem---------
+function validParanthesis(str){
+    let stack = []
+    const pairs = {
+        "(": ")",
+        "{": "}",
+        "[": "]"
     }
 
-    deposite(amount){
-        if(amount > 0){
-            this.#balance += amount
-            console.log(`Deposited ${amount}`)
+    for(let char of str){
+        if(char === '(' || char === '{' || char === '['){
+            stack.push(char)
         }
         else{
-            console.log("Invalid amount")
+            if(stack.length === 0){
+                return false
+            }
+            let last = stack.pop()
+            if(pairs[last] !== char){     
+                return false
+            }
         }
     }
-
-    withdraw(amount){
-        if(amount > 0 && amount <= this.#balance){
-            this.#balance -= amount;
-            console.log(`Withdrew ${amount}`)
-        }
-        else{
-            console.log("Not enough balance")
-        }
-    }
-    //    getter to getbalance
-    getBalance(){
-        return `your current balance is rupees ${this.#balance}`;
-    }
+    return stack.length === 0;
 }
 
-const acc1 = new BankAccount("Hassan Ali")
-acc1.deposite(1000);
-acc1.withdraw(200)
-console.log(acc1.getBalance());
-
-
+console.log(validParanthesis("{([])}"))
+console.log(validParanthesis("()[]{}")); 
+console.log(validParanthesis("([)]"));    
+console.log(validParanthesis("{[]}"));   
 
 
 
