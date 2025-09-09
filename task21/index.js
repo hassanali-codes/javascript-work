@@ -1,40 +1,43 @@
 // --------------Task 21-----------------
 
-// Private Fields:In JavaScript, you can make a property private by putting # before its name.
-// A private field can only be accessed inside the class.
+// ----------Bank Account Task-----------
+class BankAccount{
+    #balance = 0
 
-// UserAccount program
-class UserAccount{
-    #password;
-
-    constructor(username){
-        this.username = username;
-        this.#password = "";
+    constructor(owner){
+        this.owner = owner 
     }
-    setPassword(newPassword){
-        if(newPassword.length >= 6){
-            this.#password = newPassword  
+
+    deposite(amount){
+        if(amount > 0){
+            this.#balance += amount
+            console.log(`Deposited ${amount}`)
         }
         else{
-            console.log("the lenght of password must be greater than or equal to 6")
+            console.log("Invalid amount")
         }
     }
 
-    checkPassword(input){
-        if(input === this.#password){
-            return true
+    withdraw(amount){
+        if(amount > 0 && amount <= this.#balance){
+            this.#balance -= amount;
+            console.log(`Withdrew ${amount}`)
         }
         else{
-            return false;
+            console.log("Not enough balance")
         }
+    }
+    //    getter to getbalance
+    getBalance(){
+        return `your current balance is rupees ${this.#balance}`;
     }
 }
 
-const user1 = new UserAccount("Hassan")
-user1.setPassword("1234")
-user1.setPassword("Hassan1526")
-console.log(user1.checkPassword("hassan1526"))
-console.log(user1.checkPassword("Hassan1526"))
+const acc1 = new BankAccount("Hassan Ali")
+acc1.deposite(1000);
+acc1.withdraw(200)
+console.log(acc1.getBalance());
+
 
 
 
