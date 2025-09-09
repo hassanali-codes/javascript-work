@@ -1,43 +1,42 @@
 // --------------Task 21-----------------
-
-class Person{
-    constructor(name, age){
-        this.name = name;
-        this.age = age;
+// Static Methods : A normal method belongs to the object (you call it with object.method()).
+//A static method belongs to the class itself (you call it with Class.method()).
+class MathHelper {
+    static add(a, b) {
+        return a + b
     }
-    introduce(){
-        return `Hi I'm ${this.name} and I'm ${this.age} years old.`
-        }
-}
-
-class Student extends Person{
-    constructor(name, age, grade){
-        super(name, age);
-        this.grade = grade;
+    static subtract(a, b) {
+        return a - b
     }
-
-    // Ovverride
-    introduce() {
-        return `${super.introduce()} I study in grade ${this.grade}.`
+    static multiply(a, b) {
+        return a * b
+    }
+    static divide(a, b) {
+        return a / b
     }
 }
+console.log(MathHelper.add(5, 3));
+console.log(MathHelper.subtract(5, 3));
 
-const student2 = new Student("Haider", 19, "9th")
-const student1 = new Student("Hassan", 20, "10th")
-const student3 = new Student("Adnan", 24, "11th")
-const student4 = new Student("Ali", 22, "12th")
+class User{
+    static userCount = 0;
 
-console.log(student1.introduce())
-console.log(student2.introduce())
-console.log(student3.introduce())
-console.log(student4.introduce())
-
-
-
-
-
-
-
+    constructor(username){
+        this.username = username
+        User.userCount++;
+    }
+    static showCount(){
+        console.log(`There are ${User.userCount} users online`)
+    }
+    sayHello(){
+        console.log(`Hello my username is ${this.username}`)
+    }
+}
+const user1 = new User("Hassan ali")
+const user2 = new User("Haider ali")
+user1.sayHello()
+user2.sayHello()
+User.showCount()
 
 
 
