@@ -1,32 +1,25 @@
 // ----------Task 22--------------
-// Inheritance with Prototype
-function Animal(name){
-    this.name = name
+// ES6 Classes with prototype
+class Animal {
+    constructor(name){
+        this.name = name
+    }
+
+    speak(){
+        console.log(this.name, "makes a sound")
+    }
 }
 
-Animal.prototype.speak = function(){
-    console.log(this.name + " makes a sound")
+class Dog extends Animal {
+    constructor(name){
+        super(name)
+    }
+    speak(){
+        console.log(this.name,"barks")
+    }
 }
 
-function Dog(name){
-    Animal.call(this, name) // inherits properties
-}
-Dog.prototype = Object.create(Animal.prototype)   // inherit methods
-Dog.prototype = Dog
-
-
-Dog.prototype.speak = function(){
-    console.log(this.name, "Barks")
-}
-
-const dog = new Dog("Buddy")
-const animal = new Animal("Huskey")
+const dog1 = new Dog("german shephard")
+const animal = new Animal("rabbit")
 animal.speak()
-dog.speak()
-
-
-
-
-
-
-
+dog1.speak()
