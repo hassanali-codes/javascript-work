@@ -1,20 +1,18 @@
 // ----------Task 22--------------
-// Practice Task(prototype)
-function Shape(width, height){
-    this.width = width
-    this.height = height
-}
-Shape.prototype.Area = function(){
-    console.log("Area")
-}
-function Rectangle(width, height){
-    Shape.call(this, width, height)
-}
-Rectangle.prototype = Object.create(Shape.prototype)
-Rectangle.prototype.constructor = Rectangle
+// ---------LeetCode Problem 1--------
+// Reverse Integer
+// 12345 ---> 54321
 
-Rectangle.prototype.Area = function () {
-    console.log(this.width * this.height)     
+function reversedNumber(num){
+    if(num >= 0 && num <=9){
+        return num 
+    }
+    let reversedNum = 0
+    while(num!= 0){
+        reversedNum = reversedNum * 10 + (num% 10) 
+        num = Math.floor(num/10)
+    }
+    return reversedNum
 }
-const r1 = new Rectangle(20, 6)
-r1.Area()
+
+console.log(reversedNumber(1234))
