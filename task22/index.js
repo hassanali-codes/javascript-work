@@ -15,4 +15,4 @@ function reversedNumber(num){
     return reversedNum
 }
 
-console.log(reversedNumber(1234))
+console.log(reversedNumber(123))
