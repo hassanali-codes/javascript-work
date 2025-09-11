@@ -1,28 +1,28 @@
 // ----------Task 22--------------
-const obj = {};
-console.log(obj)
-console.log(obj.toString); // function toString() { [native code] } 
-
-//-------Function Prototype-------
-function Person(name){
+// Inheritance with Prototype
+function Animal(name){
     this.name = name
-
-    Person.prototype.sayHello = function (){
-        console.log(`Hello ${this.name}`)
-    }
 }
 
-const p1 = new Person("Hasssan")
-const p2 = new Person("Ali")
+Animal.prototype.speak = function(){
+    console.log(this.name + " makes a sound")
+}
 
-p1.sayHello()
-p2.sayHello()
+function Dog(name){
+    Animal.call(this, name) // inherits properties
+}
+Dog.prototype = Object.create(Animal.prototype)   // inherit methods
+Dog.prototype = Dog
 
 
+Dog.prototype.speak = function(){
+    console.log(this.name, "Barks")
+}
 
-
-
-
+const dog = new Dog("Buddy")
+const animal = new Animal("Huskey")
+animal.speak()
+dog.speak()
 
 
 
