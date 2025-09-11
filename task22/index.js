@@ -1,18 +1,12 @@
 // ----------Task 22--------------
-// ---------LeetCode Problem 1--------
-// Reverse Integer
-// 12345 ---> 54321
+// ---------LeetCode Problem 2--------
+// Remove duplicate from sorted ARRAY
 
-function reversedNumber(num){
-    if(num >= 0 && num <=9){
-        return num 
-    }
-    let reversedNum = 0
-    while(num!= 0){
-        reversedNum = reversedNum * 10 + (num% 10) 
-        num = Math.floor(num/10)
-    }
-    return reversedNum
+let arr = [1,1,2,2,3,3,4,4]
+let newarr = []
+for(let i = 0 ; i < arr.length; i++){
+    if(arr[i] !== arr[i + 1]){
+        newarr.push(arr[i])
+    } 
 }
-
-console.log(reversedNumber(123))
+console.log(newarr)  
