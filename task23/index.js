@@ -21,3 +21,28 @@ function returnFunc(){
 let a = returnFunc()
 a()  
 
+// ------------Encapsulation-------------
+// 
+
+function createCounter(){
+    let counter = 0
+
+    return {
+        increament: function(){
+            counter++
+        },
+        decrement: function(){
+            counter --
+        },
+        getCounter: function(){
+            return counter
+        }
+    }
+}
+
+let count = createCounter();
+count.increament()
+console.log(count.getCounter())
+console.log(count.counter)
+
+
