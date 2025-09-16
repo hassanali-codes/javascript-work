@@ -32,7 +32,7 @@ function createCounter(){
             counter++
         },
         decrement: function(){
-            counter --
+            counter --          
         },
         getCounter: function(){
             return counter
