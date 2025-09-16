@@ -46,3 +46,40 @@ console.log(count.getCounter())
 console.log(count.counter)
 
 
+// ---------------Scenario Based Question-----------------
+
+function bankAccount() {
+    let balance = 0
+
+    return {
+        deposite: function(amount) {
+            balance += amount
+        },
+        withdraw: function(amount){
+            if(amount<= balance){
+                balance -= amount
+            }
+            else{
+                console.log("Not enough amount")
+            }
+        },
+        getBalance: function(){
+            return balance
+        } 
+    }
+}
+
+let account = bankAccount()
+account.deposite(1000)
+console.log(account.getBalance())
+account.withdraw(500)
+console.log(account.getBalance())
+console.log(account.balance)
+
+//-----------------------------------------------------------
+// 👉 Question: How will you implement this using closures?
+//-----------------------------------------------------------
+// Ans: i use a closure by defining private balance inside a function and returning methods that can access it.
+// thats why balance is hidden, i cannot access it from outside only the methods deposite, withdraw and getBalance can access it
+
+
