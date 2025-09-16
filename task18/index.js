@@ -14,4 +14,4 @@ async function getUserPosts(userId){
         console.error("Error fetching user post: ", error)
     }
 }
-getUserPosts(5)
+getUserPosts(6)

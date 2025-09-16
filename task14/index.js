@@ -17,7 +17,7 @@ function  findIndex(arr, target){
 console.log(findIndex([1,2,3,3,3,34,5], 3)); 
 
 
-// Problem 2:
+// Problem 2: Return the index where target should be if it is not present.
 
 function searchInsert(arr, target) {
   let left = 0, right = arr.length - 1;
