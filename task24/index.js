@@ -7,6 +7,7 @@ class MovieRating {
         this.title = title
         this.rating = []
     }
+
     addRating(rate){
         if(rate >= 1 && rate <= 5){
             this.rating.push(rate)
@@ -15,15 +16,17 @@ class MovieRating {
             console.log("Rating must be between 1 and 5")
         }
     }
+
     avgRating(){
+        if(this.rating.length === 0) return 0;   
         let avg = 0
         for(let i=0; i<this.rating.length; i++){
             avg += this.rating[i]
         }
         return Math.floor(avg/this.rating.length)
     }    
-    
 }  
+
 function highestRated(movies){
     let highRated = movies[0]
     for(let i=1; i< movies.length; i++){
@@ -49,8 +52,12 @@ movie3.addRating(4);
 movie3.addRating(2);
 movie3.addRating(1);
 
-let movies = [movie1, movie2, movie3];   
-console.log(movie1.avgRating())
-console.log(movie2.avgRating())
-console.log(movie3.avgRating())
+let movie4 = new MovieRating(4, "Untitled");  
+
+let movies = [movie1, movie2, movie3, movie4];   
+
+console.log(movie1.avgRating()) 
+console.log(movie2.avgRating()) 
+console.log(movie3.avgRating()) 
+console.log(movie4.avgRating()) 
 console.log("Highest Rated:", highestRated(movies).title);
