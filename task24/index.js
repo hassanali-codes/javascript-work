@@ -61,3 +61,10 @@ console.log(movie2.avgRating())
 console.log(movie3.avgRating()) 
 console.log(movie4.avgRating()) 
 console.log("Highest Rated:", highestRated(movies).title);
+
+
+
+// ------Time complexity and space complexity--------
+// Time Complexity  :  O(m  * n) because we go through all m movies and, for each one, we may check all its n ratings.
+
+// Space Complexity : O(m *  n) because in the worst case, we store all ratings for all movies.
