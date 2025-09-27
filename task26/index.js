@@ -12,7 +12,7 @@ let passengers = {
   p1: { id: 111, name: "Hassan", bookings: [] }
 };
 
-function bookTicket(flightid, PassengerId){
+function bookTicket(flightid, PassengerId){  
     if(flights[flightid].seats > flights[flightid].bookedSeats){        
         flights[flightid].bookedSeats += 1;
         passengers[PassengerId].bookings.push(flightid);
